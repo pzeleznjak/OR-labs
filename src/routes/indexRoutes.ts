@@ -53,7 +53,7 @@ router.get('/serve-csv', async (req:Request, res:Response) => {
         res.render('error', {
             errorTitle: "File Not Found",
             errorDescription: `File ${path} is not found!\nAn error occured on backend during extraction of data to .csv!`
-        })
+        });
         return;
     }
 
@@ -88,7 +88,7 @@ router.get('/serve-json', async (req:Request, res:Response) => {
         res.render('error', {
             errorTitle: "File Not Found",
             errorDescription: `File ${path} is not found!\nAn error occured on backend during extraction of data to .json!`
-        })
+        });
         return;
     }
 
