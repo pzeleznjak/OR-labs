@@ -10,9 +10,92 @@
         <div class="root">
             <%- include('header.ejs') %>
             <main>
-                
+                <div class="content-div">
+                    <!-- <div>
+                        <p>
+                            You can search by:
+                        </p>
+                        <ul>
+                            <li>subject</li>
+                            <li>lesson</li>
+                            <li>first name of parent; last name of parent</li>
+                            <li>first name of child; last name of child</li>
+                            <li>place</li>
+                            <li>school</li>
+                            <li>class</li>
+                        </ul>
+                    </div> -->
+                    <form id="search-form" action="/datatable", method="post">
+                        <label for="search">Search:</label>
+                        <input type="text" id="search" name="search_value"><br><br>
+                        <label for="field">Choose field to filter by:</label>
+                        <select name="field_value" id="field">
+                          <option value="wildcard">All fields (wildcard)</option>
+                          <option value="subject">Subject</option>
+                          <option value="lesson">Lesson</option>
+                          <option value="name_of_parent">First name of parent; Last name of parent</option>
+                          <option value="name_of_child">First name of parent; Last name of child</option>
+                          <option value="place">place</option>
+                          <option value="school">school</option>
+                          <option value="class">class</option>
+                        </select><br><br>
+                        <input type="submit" value="search">
+                    </form>
+                </div>
+                <div id="results-div">
+                </div>
             </main>
             <%- include('footer.ejs') %>
         </div>
+        <script>
+            function createTable(rows) {
+                const table = document.createElement("table");
+                const thead = document.createElement("thead");
+                const tbody = document.createElement("tbody");
+
+                const headerRow = thead.insertRow();
+                for (const key in rows[0]) {
+                    const th = document.createElement("th");
+                    th.textContent = key;
+                    headerRow.appendChild(th);
+                }
+
+                rows.forEach((item) => {
+                    const row = tbody.insertRow();
+                    for (const key in item) {
+                        const cell = row.insertCell();
+                        cell.textContent = item[key];
+                    }
+                });
+
+                table.appendChild(thead);
+                table.appendChild(tbody);
+
+                return table;
+            }
+
+            document.getElementById("search-form").addEventListener('submit', (event) => {
+                event.preventDefault();
+    
+                const searchValue = document.getElementById("search").value;
+                const fieldValue = document.getElementById("field").value;
+                const resultsDiv = document.getElementById("results-div");
+    
+                fetch('/datatable', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ search_value:searchValue, field_value:fieldValue })
+                })
+                .then((response) => {
+                    return response.json();
+                })
+                .then((data) => {
+                    const table = createTable(data.result);
+                    resultsDiv.appendChild(table);
+                });
+            });
+        </script>
     </body>
 </html>
