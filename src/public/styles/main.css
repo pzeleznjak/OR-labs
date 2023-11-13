@@ -1,0 +1,100 @@
+body {
+    margin: 0px;
+}
+
+.footer-div {
+    display: flex;
+    background-color: blue;
+    padding: 8px;
+}
+
+.footer-div p {
+    color: white;
+    margin: 8px;
+}
+
+.header-div {
+    display: grid;
+    grid-template-columns: 90% 10%;
+    background-color: blue;
+    height: 50px;
+}
+
+.header-div div p {
+    color: white;
+    margin: 8px;
+}
+
+.home-button-div {
+    justify-self: end;
+    width: 100%;
+}
+
+.root {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+main {
+    flex: 1;
+    background-color: cornflowerblue;
+}
+
+.borderless-button {
+    border: none;
+}
+
+.content-button {
+    background-color: cadetblue;
+    border-color: white;
+    padding-top: 10px; padding-bottom: 10px;
+    padding-left: 20px; padding-right: 20px;
+}
+
+.form-button {
+    margin-top: 8px;
+}
+
+.header-button {
+    height: 100%;
+    width: 100%;
+    background-color: blueviolet;
+}
+
+.content-div {
+    margin: 8px;
+}
+
+.content-href {
+    text-decoration: none;
+}
+
+#results-div {
+    background-color: #89adf0;
+    padding-left: 8px; padding-right: 8px; padding-bottom: 8px;
+}
+
+#results-div table {
+    border: 1px solid black;
+}
+
+#results-div table tr th {
+    background-color: #6294f0;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+#results-div table tr td {
+    background-color: #6d9aed;
+    border: 1px solid black;
+    padding: 4px;
+}
+
+.warning-div p {
+    color: red;
+}
+
+.warning-div h1 {
+    color: red;
+}

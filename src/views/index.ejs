@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Instructions</title>
+        <link rel="stylesheet" type="text/css" href="../public/styles/main.css">
+    </head>
+
+    <body>
+        <div class="root">
+            <%- include('header.ejs') %>
+            <main>
+                <div class="content-div">
+                    <a class="content-href" href="/serve-csv">
+                        <button class="borderless-button content-button">Get data in CSV</button>
+                    </a>
+                    <a class="content-href" href="/serve-json">
+                        <button class="borderless-button content-button">Get data in JSON</button>
+                    </a>
+                </div>
+                <div class="content-div">
+                    <a class="content-href" href="/datatable">
+                        <button class="borderless-button content-button">Go to datatable</button>
+                    </a>
+                </div>
+            </main>
+            <%- include('footer.ejs') %>
+        </div>
+    </body>
+</html>
