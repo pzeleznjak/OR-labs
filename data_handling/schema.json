@@ -1,0 +1,1701 @@
+{
+    "$schema": "https://json-schema.org/draft/2019-09/schema",
+    "$id": "http://example.com/example.json",
+    "type": "array",
+    "default": [],
+    "title": "Root Schema",
+    "items": {
+        "type": "object",
+        "title": "A Schema",
+        "required": [
+            "instructions_id",
+            "appointment",
+            "number_of_hours",
+            "hourly_rate",
+            "subject",
+            "lesson",
+            "location",
+            "address",
+            "parent",
+            "child"
+        ],
+        "properties": {
+            "instructions_id": {
+                "type": "integer",
+                "title": "The instructions_id Schema",
+                "examples": [
+                    1,
+                    2,
+                    3,
+                    4,
+                    5,
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ]
+            },
+            "appointment": {
+                "type": "string",
+                "title": "The appointment Schema",
+                "examples": [
+                    "2023-11-01T15:00:00",
+                    "2023-11-03T11:00:00",
+                    "2023-11-05T17:00:00",
+                    "2023-11-01T12:00:00",
+                    "2023-11-02T12:00:00",
+                    "2023-11-04T18:00:00",
+                    "2023-11-05T20:00:00",
+                    "2023-11-04T11:30:00",
+                    "2023-11-06T11:30:00",
+                    "2023-11-07T11:30:00"
+                ]
+            },
+            "number_of_hours": {
+                "type": "integer",
+                "title": "The number_of_hours Schema",
+                "examples": [
+                    2,
+                    3,
+                    1
+                ]
+            },
+            "hourly_rate": {
+                "type": [
+                    "integer",
+                    "number"
+                ],
+                "title": "The hourly_rate Schema",
+                "examples": [
+                    10,
+                    12.5
+                ]
+            },
+            "subject": {
+                "type": "string",
+                "title": "The subject Schema",
+                "examples": [
+                    "mathematics",
+                    "physics"
+                ]
+            },
+            "lesson": {
+                "type": "string",
+                "title": "The lesson Schema",
+                "examples": [
+                    "geometry",
+                    "dinamics",
+                    "multiplication"
+                ]
+            },
+            "location": {
+                "type": "string",
+                "title": "The location Schema",
+                "examples": [
+                    "home",
+                    "instructors"
+                ]
+            },
+            "address": {
+                "type": "object",
+                "title": "The address Schema",
+                "required": [
+                    "place",
+                    "street",
+                    "house_number",
+                    "zip_code",
+                    "country"
+                ],
+                "properties": {
+                    "place": {
+                        "type": "string",
+                        "title": "The place Schema",
+                        "examples": [
+                            "Zagreb"
+                        ]
+                    },
+                    "street": {
+                        "type": "string",
+                        "title": "The street Schema",
+                        "examples": [
+                            "Murterska ulica",
+                            "Vitoroška ulica",
+                            "Trnsko ulica"
+                        ]
+                    },
+                    "house_number": {
+                        "type": "string",
+                        "title": "The house_number Schema",
+                        "examples": [
+                            "35",
+                            "8",
+                            "33D"
+                        ]
+                    },
+                    "zip_code": {
+                        "type": "string",
+                        "title": "The zip_code Schema",
+                        "examples": [
+                            "10000"
+                        ]
+                    },
+                    "country": {
+                        "type": "object",
+                        "title": "The country Schema",
+                        "required": [
+                            "country_name",
+                            "area_code"
+                        ],
+                        "properties": {
+                            "country_name": {
+                                "type": "string",
+                                "title": "The country_name Schema",
+                                "examples": [
+                                    "Croatia"
+                                ]
+                            },
+                            "area_code": {
+                                "type": "string",
+                                "title": "The area_code Schema",
+                                "examples": [
+                                    "+385"
+                                ]
+                            }
+                        },
+                        "examples": [{
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        },
+                        {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }]
+                    }
+                },
+                "examples": [{
+                    "place": "Zagreb",
+                    "street": "Murterska ulica",
+                    "house_number": "35",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Murterska ulica",
+                    "house_number": "35",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Murterska ulica",
+                    "house_number": "35",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Vitoroška ulica",
+                    "house_number": "8",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Vitoroška ulica",
+                    "house_number": "8",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Vitoroška ulica",
+                    "house_number": "8",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Vitoroška ulica",
+                    "house_number": "8",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Trnsko ulica",
+                    "house_number": "33D",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Trnsko ulica",
+                    "house_number": "33D",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                },
+                {
+                    "place": "Zagreb",
+                    "street": "Trnsko ulica",
+                    "house_number": "33D",
+                    "zip_code": "10000",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }]
+            },
+            "parent": {
+                "type": "object",
+                "title": "The parent Schema",
+                "required": [
+                    "personal_information",
+                    "contact"
+                ],
+                "properties": {
+                    "personal_information": {
+                        "type": "object",
+                        "title": "The personal_information Schema",
+                        "required": [
+                            "first_name",
+                            "last_name"
+                        ],
+                        "properties": {
+                            "first_name": {
+                                "type": "string",
+                                "title": "The first_name Schema",
+                                "examples": [
+                                    "Marko",
+                                    "Ivana",
+                                    "Marta"
+                                ]
+                            },
+                            "last_name": {
+                                "type": "string",
+                                "title": "The last_name Schema",
+                                "examples": [
+                                    "Horvat",
+                                    "Kovačić",
+                                    "Novak"
+                                ]
+                            }
+                        },
+                        "examples": [{
+                            "first_name": "Marko",
+                            "last_name": "Horvat"
+                        },
+                        {
+                            "first_name": "Marko",
+                            "last_name": "Horvat"
+                        },
+                        {
+                            "first_name": "Marko",
+                            "last_name": "Horvat"
+                        },
+                        {
+                            "first_name": "Ivana",
+                            "last_name": "Kovačić"
+                        },
+                        {
+                            "first_name": "Ivana",
+                            "last_name": "Kovačić"
+                        },
+                        {
+                            "first_name": "Ivana",
+                            "last_name": "Kovačić"
+                        },
+                        {
+                            "first_name": "Ivana",
+                            "last_name": "Kovačić"
+                        },
+                        {
+                            "first_name": "Marta",
+                            "last_name": "Novak"
+                        },
+                        {
+                            "first_name": "Marta",
+                            "last_name": "Novak"
+                        },
+                        {
+                            "first_name": "Marta",
+                            "last_name": "Novak"
+                        }]
+                    },
+                    "contact": {
+                        "type": "object",
+                        "title": "The contact Schema",
+                        "required": [
+                            "telephone",
+                            "email",
+                            "country"
+                        ],
+                        "properties": {
+                            "telephone": {
+                                "type": "string",
+                                "title": "The telephone Schema",
+                                "examples": [
+                                    "0982937683",
+                                    "0998366106",
+                                    "0751028473"
+                                ]
+                            },
+                            "email": {
+                                "type": "string",
+                                "title": "The email Schema",
+                                "examples": [
+                                    "markohorvat12@gmail.com",
+                                    "ivana.kovacic3@gmail.com",
+                                    "novakmarta11@gmail.com"
+                                ]
+                            },
+                            "country": {
+                                "type": "object",
+                                "title": "The country Schema",
+                                "required": [
+                                    "country_name",
+                                    "area_code"
+                                ],
+                                "properties": {
+                                    "country_name": {
+                                        "type": "string",
+                                        "title": "The country_name Schema",
+                                        "examples": [
+                                            "Croatia"
+                                        ]
+                                    },
+                                    "area_code": {
+                                        "type": "string",
+                                        "title": "The area_code Schema",
+                                        "examples": [
+                                            "+385"
+                                        ]
+                                    }
+                                },
+                                "examples": [{
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                },
+                                {
+                                    "country_name": "Croatia",
+                                    "area_code": "+385"
+                                }]
+                            }
+                        },
+                        "examples": [{
+                            "telephone": "0982937683",
+                            "email": "markohorvat12@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0982937683",
+                            "email": "markohorvat12@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0982937683",
+                            "email": "markohorvat12@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0998366106",
+                            "email": "ivana.kovacic3@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0998366106",
+                            "email": "ivana.kovacic3@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0998366106",
+                            "email": "ivana.kovacic3@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0998366106",
+                            "email": "ivana.kovacic3@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0751028473",
+                            "email": "novakmarta11@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0751028473",
+                            "email": "novakmarta11@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        },
+                        {
+                            "telephone": "0751028473",
+                            "email": "novakmarta11@gmail.com",
+                            "country": {
+                                "country_name": "Croatia",
+                                "area_code": "+385"
+                            }
+                        }]
+                    }
+                },
+                "examples": [{
+                    "personal_information": {
+                        "first_name": "Marko",
+                        "last_name": "Horvat"
+                    },
+                    "contact": {
+                        "telephone": "0982937683",
+                        "email": "markohorvat12@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Marko",
+                        "last_name": "Horvat"
+                    },
+                    "contact": {
+                        "telephone": "0982937683",
+                        "email": "markohorvat12@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Marko",
+                        "last_name": "Horvat"
+                    },
+                    "contact": {
+                        "telephone": "0982937683",
+                        "email": "markohorvat12@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Ivana",
+                        "last_name": "Kovačić"
+                    },
+                    "contact": {
+                        "telephone": "0998366106",
+                        "email": "ivana.kovacic3@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Ivana",
+                        "last_name": "Kovačić"
+                    },
+                    "contact": {
+                        "telephone": "0998366106",
+                        "email": "ivana.kovacic3@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Ivana",
+                        "last_name": "Kovačić"
+                    },
+                    "contact": {
+                        "telephone": "0998366106",
+                        "email": "ivana.kovacic3@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Ivana",
+                        "last_name": "Kovačić"
+                    },
+                    "contact": {
+                        "telephone": "0998366106",
+                        "email": "ivana.kovacic3@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Marta",
+                        "last_name": "Novak"
+                    },
+                    "contact": {
+                        "telephone": "0751028473",
+                        "email": "novakmarta11@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Marta",
+                        "last_name": "Novak"
+                    },
+                    "contact": {
+                        "telephone": "0751028473",
+                        "email": "novakmarta11@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                },
+                {
+                    "personal_information": {
+                        "first_name": "Marta",
+                        "last_name": "Novak"
+                    },
+                    "contact": {
+                        "telephone": "0751028473",
+                        "email": "novakmarta11@gmail.com",
+                        "country": {
+                            "country_name": "Croatia",
+                            "area_code": "+385"
+                        }
+                    }
+                }]
+            },
+            "child": {
+                "type": "object",
+                "title": "The child Schema",
+                "required": [
+                    "school",
+                    "class",
+                    "personal_information"
+                ],
+                "properties": {
+                    "school": {
+                        "type": "string",
+                        "title": "The school Schema",
+                        "examples": [
+                            "OŠ Rapska",
+                            "OŠ Malešnica",
+                            "OŠ Trnsko"
+                        ]
+                    },
+                    "class": {
+                        "type": "integer",
+                        "title": "The class Schema",
+                        "examples": [
+                            4,
+                            7,
+                            2
+                        ]
+                    },
+                    "personal_information": {
+                        "type": "object",
+                        "title": "The personal_information Schema",
+                        "required": [
+                            "first_name",
+                            "last_name"
+                        ],
+                        "properties": {
+                            "first_name": {
+                                "type": "string",
+                                "title": "The first_name Schema",
+                                "examples": [
+                                    "Mila",
+                                    "Maja",
+                                    "Mario"
+                                ]
+                            },
+                            "last_name": {
+                                "type": "string",
+                                "title": "The last_name Schema",
+                                "examples": [
+                                    "Horvat",
+                                    "Kovačić",
+                                    "Novak"
+                                ]
+                            }
+                        },
+                        "examples": [{
+                            "first_name": "Mila",
+                            "last_name": "Horvat"
+                        },
+                        {
+                            "first_name": "Mila",
+                            "last_name": "Horvat"
+                        },
+                        {
+                            "first_name": "Mila",
+                            "last_name": "Horvat"
+                        },
+                        {
+                            "first_name": "Maja",
+                            "last_name": "Kovačić"
+                        },
+                        {
+                            "first_name": "Maja",
+                            "last_name": "Kovačić"
+                        },
+                        {
+                            "first_name": "Maja",
+                            "last_name": "Kovačić"
+                        },
+                        {
+                            "first_name": "Maja",
+                            "last_name": "Kovačić"
+                        },
+                        {
+                            "first_name": "Mario",
+                            "last_name": "Novak"
+                        },
+                        {
+                            "first_name": "Mario",
+                            "last_name": "Novak"
+                        },
+                        {
+                            "first_name": "Mario",
+                            "last_name": "Novak"
+                        }]
+                    }
+                },
+                "examples": [{
+                    "school": "OŠ Rapska",
+                    "class": 4,
+                    "personal_information": {
+                        "first_name": "Mila",
+                        "last_name": "Horvat"
+                    }
+                },
+                {
+                    "school": "OŠ Rapska",
+                    "class": 4,
+                    "personal_information": {
+                        "first_name": "Mila",
+                        "last_name": "Horvat"
+                    }
+                },
+                {
+                    "school": "OŠ Rapska",
+                    "class": 4,
+                    "personal_information": {
+                        "first_name": "Mila",
+                        "last_name": "Horvat"
+                    }
+                },
+                {
+                    "school": "OŠ Malešnica",
+                    "class": 7,
+                    "personal_information": {
+                        "first_name": "Maja",
+                        "last_name": "Kovačić"
+                    }
+                },
+                {
+                    "school": "OŠ Malešnica",
+                    "class": 7,
+                    "personal_information": {
+                        "first_name": "Maja",
+                        "last_name": "Kovačić"
+                    }
+                },
+                {
+                    "school": "OŠ Malešnica",
+                    "class": 7,
+                    "personal_information": {
+                        "first_name": "Maja",
+                        "last_name": "Kovačić"
+                    }
+                },
+                {
+                    "school": "OŠ Malešnica",
+                    "class": 7,
+                    "personal_information": {
+                        "first_name": "Maja",
+                        "last_name": "Kovačić"
+                    }
+                },
+                {
+                    "school": "OŠ Trnsko",
+                    "class": 2,
+                    "personal_information": {
+                        "first_name": "Mario",
+                        "last_name": "Novak"
+                    }
+                },
+                {
+                    "school": "OŠ Trnsko",
+                    "class": 2,
+                    "personal_information": {
+                        "first_name": "Mario",
+                        "last_name": "Novak"
+                    }
+                },
+                {
+                    "school": "OŠ Trnsko",
+                    "class": 2,
+                    "personal_information": {
+                        "first_name": "Mario",
+                        "last_name": "Novak"
+                    }
+                }]
+            }
+        },
+        "examples": [{
+            "instructions_id": 1,
+            "appointment": "2023-11-01T15:00:00",
+            "number_of_hours": 2,
+            "hourly_rate": 10,
+            "subject": "mathematics",
+            "lesson": "geometry",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Murterska ulica",
+                "house_number": "35",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marko",
+                    "last_name": "Horvat"
+                },
+                "contact": {
+                    "telephone": "0982937683",
+                    "email": "markohorvat12@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Rapska",
+                "class": 4,
+                "personal_information": {
+                    "first_name": "Mila",
+                    "last_name": "Horvat"
+                }
+            }
+        },
+        {
+            "instructions_id": 2,
+            "appointment": "2023-11-03T11:00:00",
+            "number_of_hours": 3,
+            "hourly_rate": 10,
+            "subject": "mathematics",
+            "lesson": "geometry",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Murterska ulica",
+                "house_number": "35",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marko",
+                    "last_name": "Horvat"
+                },
+                "contact": {
+                    "telephone": "0982937683",
+                    "email": "markohorvat12@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Rapska",
+                "class": 4,
+                "personal_information": {
+                    "first_name": "Mila",
+                    "last_name": "Horvat"
+                }
+            }
+        },
+        {
+            "instructions_id": 3,
+            "appointment": "2023-11-05T17:00:00",
+            "number_of_hours": 2,
+            "hourly_rate": 10,
+            "subject": "mathematics",
+            "lesson": "geometry",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Murterska ulica",
+                "house_number": "35",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marko",
+                    "last_name": "Horvat"
+                },
+                "contact": {
+                    "telephone": "0982937683",
+                    "email": "markohorvat12@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Rapska",
+                "class": 4,
+                "personal_information": {
+                    "first_name": "Mila",
+                    "last_name": "Horvat"
+                }
+            }
+        },
+        {
+            "instructions_id": 4,
+            "appointment": "2023-11-01T12:00:00",
+            "number_of_hours": 2,
+            "hourly_rate": 10,
+            "subject": "physics",
+            "lesson": "dinamics",
+            "location": "instructors",
+            "address": {
+                "place": "Zagreb",
+                "street": "Vitoroška ulica",
+                "house_number": "8",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Ivana",
+                    "last_name": "Kovačić"
+                },
+                "contact": {
+                    "telephone": "0998366106",
+                    "email": "ivana.kovacic3@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Malešnica",
+                "class": 7,
+                "personal_information": {
+                    "first_name": "Maja",
+                    "last_name": "Kovačić"
+                }
+            }
+        },
+        {
+            "instructions_id": 5,
+            "appointment": "2023-11-02T12:00:00",
+            "number_of_hours": 3,
+            "hourly_rate": 10,
+            "subject": "physics",
+            "lesson": "dinamics",
+            "location": "instructors",
+            "address": {
+                "place": "Zagreb",
+                "street": "Vitoroška ulica",
+                "house_number": "8",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Ivana",
+                    "last_name": "Kovačić"
+                },
+                "contact": {
+                    "telephone": "0998366106",
+                    "email": "ivana.kovacic3@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Malešnica",
+                "class": 7,
+                "personal_information": {
+                    "first_name": "Maja",
+                    "last_name": "Kovačić"
+                }
+            }
+        },
+        {
+            "instructions_id": 6,
+            "appointment": "2023-11-04T18:00:00",
+            "number_of_hours": 2,
+            "hourly_rate": 10,
+            "subject": "physics",
+            "lesson": "dinamics",
+            "location": "instructors",
+            "address": {
+                "place": "Zagreb",
+                "street": "Vitoroška ulica",
+                "house_number": "8",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Ivana",
+                    "last_name": "Kovačić"
+                },
+                "contact": {
+                    "telephone": "0998366106",
+                    "email": "ivana.kovacic3@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Malešnica",
+                "class": 7,
+                "personal_information": {
+                    "first_name": "Maja",
+                    "last_name": "Kovačić"
+                }
+            }
+        },
+        {
+            "instructions_id": 7,
+            "appointment": "2023-11-05T20:00:00",
+            "number_of_hours": 1,
+            "hourly_rate": 10,
+            "subject": "physics",
+            "lesson": "dinamics",
+            "location": "instructors",
+            "address": {
+                "place": "Zagreb",
+                "street": "Vitoroška ulica",
+                "house_number": "8",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Ivana",
+                    "last_name": "Kovačić"
+                },
+                "contact": {
+                    "telephone": "0998366106",
+                    "email": "ivana.kovacic3@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Malešnica",
+                "class": 7,
+                "personal_information": {
+                    "first_name": "Maja",
+                    "last_name": "Kovačić"
+                }
+            }
+        },
+        {
+            "instructions_id": 8,
+            "appointment": "2023-11-04T11:30:00",
+            "number_of_hours": 2,
+            "hourly_rate": 12.5,
+            "subject": "mathematics",
+            "lesson": "multiplication",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Trnsko ulica",
+                "house_number": "33D",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marta",
+                    "last_name": "Novak"
+                },
+                "contact": {
+                    "telephone": "0751028473",
+                    "email": "novakmarta11@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Trnsko",
+                "class": 2,
+                "personal_information": {
+                    "first_name": "Mario",
+                    "last_name": "Novak"
+                }
+            }
+        },
+        {
+            "instructions_id": 9,
+            "appointment": "2023-11-06T11:30:00",
+            "number_of_hours": 2,
+            "hourly_rate": 12.5,
+            "subject": "mathematics",
+            "lesson": "multiplication",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Trnsko ulica",
+                "house_number": "33D",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marta",
+                    "last_name": "Novak"
+                },
+                "contact": {
+                    "telephone": "0751028473",
+                    "email": "novakmarta11@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Trnsko",
+                "class": 2,
+                "personal_information": {
+                    "first_name": "Mario",
+                    "last_name": "Novak"
+                }
+            }
+        },
+        {
+            "instructions_id": 10,
+            "appointment": "2023-11-07T11:30:00",
+            "number_of_hours": 2,
+            "hourly_rate": 12.5,
+            "subject": "mathematics",
+            "lesson": "multiplication",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Trnsko ulica",
+                "house_number": "33D",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marta",
+                    "last_name": "Novak"
+                },
+                "contact": {
+                    "telephone": "0751028473",
+                    "email": "novakmarta11@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Trnsko",
+                "class": 2,
+                "personal_information": {
+                    "first_name": "Mario",
+                    "last_name": "Novak"
+                }
+            }
+        }]
+    },
+    "examples": [
+        [{
+            "instructions_id": 1,
+            "appointment": "2023-11-01T15:00:00",
+            "number_of_hours": 2,
+            "hourly_rate": 10,
+            "subject": "mathematics",
+            "lesson": "geometry",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Murterska ulica",
+                "house_number": "35",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marko",
+                    "last_name": "Horvat"
+                },
+                "contact": {
+                    "telephone": "0982937683",
+                    "email": "markohorvat12@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Rapska",
+                "class": 4,
+                "personal_information": {
+                    "first_name": "Mila",
+                    "last_name": "Horvat"
+                }
+            }
+        },
+        {
+            "instructions_id": 2,
+            "appointment": "2023-11-03T11:00:00",
+            "number_of_hours": 3,
+            "hourly_rate": 10,
+            "subject": "mathematics",
+            "lesson": "geometry",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Murterska ulica",
+                "house_number": "35",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marko",
+                    "last_name": "Horvat"
+                },
+                "contact": {
+                    "telephone": "0982937683",
+                    "email": "markohorvat12@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Rapska",
+                "class": 4,
+                "personal_information": {
+                    "first_name": "Mila",
+                    "last_name": "Horvat"
+                }
+            }
+        },
+        {
+            "instructions_id": 3,
+            "appointment": "2023-11-05T17:00:00",
+            "number_of_hours": 2,
+            "hourly_rate": 10,
+            "subject": "mathematics",
+            "lesson": "geometry",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Murterska ulica",
+                "house_number": "35",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marko",
+                    "last_name": "Horvat"
+                },
+                "contact": {
+                    "telephone": "0982937683",
+                    "email": "markohorvat12@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Rapska",
+                "class": 4,
+                "personal_information": {
+                    "first_name": "Mila",
+                    "last_name": "Horvat"
+                }
+            }
+        },
+        {
+            "instructions_id": 4,
+            "appointment": "2023-11-01T12:00:00",
+            "number_of_hours": 2,
+            "hourly_rate": 10,
+            "subject": "physics",
+            "lesson": "dinamics",
+            "location": "instructors",
+            "address": {
+                "place": "Zagreb",
+                "street": "Vitoroška ulica",
+                "house_number": "8",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Ivana",
+                    "last_name": "Kovačić"
+                },
+                "contact": {
+                    "telephone": "0998366106",
+                    "email": "ivana.kovacic3@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Malešnica",
+                "class": 7,
+                "personal_information": {
+                    "first_name": "Maja",
+                    "last_name": "Kovačić"
+                }
+            }
+        },
+        {
+            "instructions_id": 5,
+            "appointment": "2023-11-02T12:00:00",
+            "number_of_hours": 3,
+            "hourly_rate": 10,
+            "subject": "physics",
+            "lesson": "dinamics",
+            "location": "instructors",
+            "address": {
+                "place": "Zagreb",
+                "street": "Vitoroška ulica",
+                "house_number": "8",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Ivana",
+                    "last_name": "Kovačić"
+                },
+                "contact": {
+                    "telephone": "0998366106",
+                    "email": "ivana.kovacic3@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Malešnica",
+                "class": 7,
+                "personal_information": {
+                    "first_name": "Maja",
+                    "last_name": "Kovačić"
+                }
+            }
+        },
+        {
+            "instructions_id": 6,
+            "appointment": "2023-11-04T18:00:00",
+            "number_of_hours": 2,
+            "hourly_rate": 10,
+            "subject": "physics",
+            "lesson": "dinamics",
+            "location": "instructors",
+            "address": {
+                "place": "Zagreb",
+                "street": "Vitoroška ulica",
+                "house_number": "8",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Ivana",
+                    "last_name": "Kovačić"
+                },
+                "contact": {
+                    "telephone": "0998366106",
+                    "email": "ivana.kovacic3@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Malešnica",
+                "class": 7,
+                "personal_information": {
+                    "first_name": "Maja",
+                    "last_name": "Kovačić"
+                }
+            }
+        },
+        {
+            "instructions_id": 7,
+            "appointment": "2023-11-05T20:00:00",
+            "number_of_hours": 1,
+            "hourly_rate": 10,
+            "subject": "physics",
+            "lesson": "dinamics",
+            "location": "instructors",
+            "address": {
+                "place": "Zagreb",
+                "street": "Vitoroška ulica",
+                "house_number": "8",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Ivana",
+                    "last_name": "Kovačić"
+                },
+                "contact": {
+                    "telephone": "0998366106",
+                    "email": "ivana.kovacic3@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Malešnica",
+                "class": 7,
+                "personal_information": {
+                    "first_name": "Maja",
+                    "last_name": "Kovačić"
+                }
+            }
+        },
+        {
+            "instructions_id": 8,
+            "appointment": "2023-11-04T11:30:00",
+            "number_of_hours": 2,
+            "hourly_rate": 12.5,
+            "subject": "mathematics",
+            "lesson": "multiplication",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Trnsko ulica",
+                "house_number": "33D",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marta",
+                    "last_name": "Novak"
+                },
+                "contact": {
+                    "telephone": "0751028473",
+                    "email": "novakmarta11@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Trnsko",
+                "class": 2,
+                "personal_information": {
+                    "first_name": "Mario",
+                    "last_name": "Novak"
+                }
+            }
+        },
+        {
+            "instructions_id": 9,
+            "appointment": "2023-11-06T11:30:00",
+            "number_of_hours": 2,
+            "hourly_rate": 12.5,
+            "subject": "mathematics",
+            "lesson": "multiplication",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Trnsko ulica",
+                "house_number": "33D",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marta",
+                    "last_name": "Novak"
+                },
+                "contact": {
+                    "telephone": "0751028473",
+                    "email": "novakmarta11@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Trnsko",
+                "class": 2,
+                "personal_information": {
+                    "first_name": "Mario",
+                    "last_name": "Novak"
+                }
+            }
+        },
+        {
+            "instructions_id": 10,
+            "appointment": "2023-11-07T11:30:00",
+            "number_of_hours": 2,
+            "hourly_rate": 12.5,
+            "subject": "mathematics",
+            "lesson": "multiplication",
+            "location": "home",
+            "address": {
+                "place": "Zagreb",
+                "street": "Trnsko ulica",
+                "house_number": "33D",
+                "zip_code": "10000",
+                "country": {
+                    "country_name": "Croatia",
+                    "area_code": "+385"
+                }
+            },
+            "parent": {
+                "personal_information": {
+                    "first_name": "Marta",
+                    "last_name": "Novak"
+                },
+                "contact": {
+                    "telephone": "0751028473",
+                    "email": "novakmarta11@gmail.com",
+                    "country": {
+                        "country_name": "Croatia",
+                        "area_code": "+385"
+                    }
+                }
+            },
+            "child": {
+                "school": "OŠ Trnsko",
+                "class": 2,
+                "personal_information": {
+                    "first_name": "Mario",
+                    "last_name": "Novak"
+                }
+            }
+        }]
+    ]
+}
