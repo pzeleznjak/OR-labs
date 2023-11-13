@@ -73,6 +73,7 @@ main {
 #results-div {
     background-color: #89adf0;
     padding-left: 8px; padding-right: 8px; padding-bottom: 8px;
+    overflow-x: auto;
 }
 
 #results-div table {
@@ -97,4 +98,15 @@ main {
 
 .warning-div h1 {
     color: red;
+}
+
+.hidden-element {
+    display: none;
+}
+
+#download-button-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 8px;
 }

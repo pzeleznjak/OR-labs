@@ -43,6 +43,14 @@
                     </form>
                 </div>
                 <div id="results-div">
+                    <div id="download-button-div">
+                        <a class="hidden-element" href="/download-csv">
+                            <button class="download-button borderless-button content-button">Download CSV</button>
+                        </a>
+                        <a class="hidden-element" href="/download-json">
+                            <button class="download-button borderless-button content-button">Download JSON</button>
+                        </a>
+                    </div>
                 </div>
             </main>
             <%- include('footer.ejs') %>
@@ -80,6 +88,11 @@
                 const searchValue = document.getElementById("search").value;
                 const fieldValue = document.getElementById("field").value;
                 const resultsDiv = document.getElementById("results-div");
+
+                if (resultsDiv.childElementCount !== 1) {
+                    resultsDiv.removeChild(resultsDiv.querySelector("table"));
+                    document.querySelectorAll(".hidden-element").forEach((element) => element.style.display = "none");
+                }
     
                 fetch('/datatable', {
                     method: 'POST',
@@ -93,7 +106,8 @@
                 })
                 .then((data) => {
                     const table = createTable(data.result);
-                    resultsDiv.appendChild(table);
+                    resultsDiv.insertBefore(table, document.getElementById('download-button-div'));
+                    document.querySelectorAll(".hidden-element").forEach((element) => element.style.display = "contents");
                 });
             });
         </script>
