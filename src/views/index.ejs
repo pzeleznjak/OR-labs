@@ -2,7 +2,11 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>Instructions</title>
+        <meta name="description" content="This data set stores information about school instructions given to children. It includes data on addresses, contacts, parent and child information, instruction hours and hourly rates, appointments, and instruction locations. All data in this data set is made up for the purposes of 'Open Computing' class of Computer Science study at Faculty of Electrical Engineering and Computer Science in Zagreb, Croatia">
+        <meta name="author" content="Petar Železnjak">
+        <meta name="Version" content="1.0">
+        <meta name="language" content="English">
+        <title>School Instructions Data Set</title>
         <link rel="stylesheet" type="text/css" href="../public/styles/main.css">
     </head>
 
@@ -10,6 +14,49 @@
         <div class="root">
             <%- include('header.ejs') %>
             <main>
+                <div>
+                    <h1>School Instructions Data Set</h1>
+                    <p>This data set stores information about school instructions given to children. It includes data on addresses, contacts, parent and child information, instruction hours and hourly rates, appointments, and instruction locations.</p>
+                    <p>All data in this data set is made up for the purposes of "Open Computing" class of Computer Science study at Faculty of Electrical Engineering and Computer Science in Zagreb, Croatia</p>
+                </div>
+                <div>
+                    <h2>License</h2>
+                    <p>School Instructions Dataset by Petar Železnjak is marked with CC0 1.0 Universal license.</p>
+                    <p>Excerpt from <a href="https://chooser-beta.creativecommons.org/">https://chooser-beta.creativecommons.org/</a>:</p>
+                    <p>"By marking the work with a CC0 public domain dedication, the creator is giving up their copyright and allowing reusers to distribute, remix, adapt, and build upon the material in any medium or format, even for commercial purposes."</p>
+                    <ul>
+                        <li>Author: Petar Železnjak</li>
+                        <li>Version: 1.0</li>
+                        <li>Language: English</li>
+                    </ul>
+                </div>
+                <div>
+                    <h2>Attributes</h2>
+                    <p>The data set includes the following attributes:</p>
+                    <ul>
+                        <li><b>instructions_id</b>: Unique instructions identifier - Data type: Integer</li>
+                        <li><b>country_name</b>: Name of the country where instructions are given (part of address) - Data type: Character array of length 50</li>
+                        <li><b>place</b>: Name of the place where instructions are given (part of address) - city, town, village, etc. - Data type: Character array of length 50</li>
+                        <li><b>street</b>: Name of the street where instructions are given (part of address) - Data type: Character array of length 50</li>
+                        <li><b>house_number</b>: House number (part of address) - Data type: Character array of length 10</li>
+                        <li><b>zip_code</b>: Zip code (part of address) - Data type: Character array of length 10</li>
+                        <li><b>parent_first_name</b>: First name of the parent </li>
+                        <li><b>parent_last_name</b>: Last name of the parent - Data type: Character array of length 50</li>
+                        <li><b>area_code</b>: Phone number prefix (e.g., +385 for Croatia) - Data type: Character array of length 4</li>
+                        <li><b>telephone</b>: Telephone number of the parent - Data type: Character array of length 9</li>
+                        <li><b>email</b>: E-mail address of the parent - Data type: Character array of length 50</li>
+                        <li><b>child_first_name</b>: First name of the child - Data type: Character array of length 50</li>
+                        <li><b>child_last_name</b>: Last name of the child - Data type: Character array of length 50</li>
+                        <li><b>school</b>: Name of the school the child attends - Data type: Character array of length 50</li>
+                        <li><b>class</b>: Number of the school class the child is currently in - Data type: Integer</li>
+                        <li><b>appointment</b>: Date and time of the appointment - Data type: Timestamp (date + time)</li>
+                        <li><b>number_of_hours</b>: Number of hours the appointment lasts - Data type: Integer</li>
+                        <li><b>hourly_rate</b>: Cost per hour - Data type: Real number</li>
+                        <li><b>subject</b>: Subject of instructions (e.g., mathematics) - Data type: Character array of length 50</li>
+                        <li><b>lesson</b>: Lesson of the subject of instructions (e.g., geometry) - Data type: Character array of length 50</li>
+                        <li><b>location</b>: Location of the instructions (two possible values: "home" or "instructors") - Data type: Character array of length 11</li>
+                    </ul>
+                </div>
                 <div class="content-div">
                     <a class="content-href" href="/serve-csv">
                         <button class="borderless-button content-button">Get data in CSV</button>

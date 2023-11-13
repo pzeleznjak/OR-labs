@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import { queryBuilder } from '../public/utils/queryBuilder';
 import { database } from '../server';
+import { queryResultsToCSV, queryResultsToJSON } from '../public/utils/serializer';
+import * as fs from 'fs';
 
 var router = express.Router();
 
@@ -45,10 +47,28 @@ router.post('/', async (req:Request, res:Response) => {
     const response = {
         result:rows
     };
-    console.log(response);
+    
+    queryResultsToCSV(rows);
+    queryResultsToJSON(rows);
 
     res.json(response);
 });
+
+router.get('/download-csv', (req:Request, res:Response) => {
+    const path = "./data_handling/dumps/or_filtered_instructions.csv"
+    res.setHeader("Content-Type","text/csv");
+    res.setHeader("Content-Disposition", "attachment; filename=or_filtered_instructions.csv");
+    const fileStream:fs.ReadStream = fs.createReadStream(path);
+    fileStream.pipe(res);
+})
+
+router.get('/download-json', (req:Request, res:Response) => {
+    const path = "./data_handling/dumps/or_filtered_instructions.json"
+    res.setHeader("Content-Type","text/json");
+    res.setHeader("Content-Disposition", "attachment; filename=or_instructions.json");
+    const fileStream:fs.ReadStream = fs.createReadStream(path);
+    fileStream.pipe(res);
+})
 
 export default {
     router
