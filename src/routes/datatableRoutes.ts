@@ -33,6 +33,8 @@ router.post('/', async (req:Request, res:Response) => {
         return;
     }
     
+    console.log(query);
+
     try {
         var result = await database.query(query);    
     } catch (error: Error|any) {

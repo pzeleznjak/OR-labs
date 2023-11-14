@@ -10,14 +10,55 @@ enum FieldValue {
 }
 
 function buildWildcard(searchValue: string): string {
-    return "";
+    let searchValueFloat = Number.parseFloat(searchValue);    
+    
+    let searchValueInt = Number.parseInt(searchValue);    
+        
+    if (!Number.isNaN(searchValueInt)) {
+        return `
+        SELECT *
+        FROM instructions_single_table
+        WHERE number_of_hours = ${searchValueInt}
+            OR class = ${searchValueInt};
+        `;
+    }
+
+    if (!Number.isNaN(searchValueFloat)) {
+        return `
+        SELECT *
+        FROM instructions_single_table
+        WHERE hourly_rate = ${searchValueFloat};
+        `;
+    }
+
+    return `
+    SELECT *
+    FROM instructions_single_table
+    WHERE appointment::varchar LIKE '${searchValue}'
+        OR subject LIKE '${searchValue}'
+        OR lesson LIKE '${searchValue}'
+        OR location LIKE '${searchValue}'
+        OR place LIKE '${searchValue}'
+        OR street LIKE '${searchValue}'
+        OR house_number LIKE '${searchValue}'
+        OR zip_code LIKE '${searchValue}'
+        OR country_name LIKE '${searchValue}'
+        OR parent_first_name LIKE '${searchValue}'
+        OR parent_last_name LIKE '${searchValue}'
+        OR telephone LIKE '${searchValue}'
+        OR email LIKE '${searchValue}'
+        OR area_code LIKE '${searchValue}'
+        OR school LIKE '${searchValue}'
+        OR child_first_name LIKE '${searchValue}'
+        OR child_last_name LIKE '${searchValue}';
+    `;
 }
 
 function buildSubject(searchValue: string): string {
     return `
     SELECT *
     FROM instructions_single_table
-    WHERE subject LIKE '%${searchValue}%';
+    WHERE subject LIKE '${searchValue}';
     `;
 }
 
@@ -25,7 +66,7 @@ function buildLesson(searchValue: string): string {
     return `
     SELECT *
     FROM instructions_single_table
-    WHERE lesson LIKE '%${searchValue}%';
+    WHERE lesson LIKE '${searchValue}';
     `;
 }
 
@@ -34,16 +75,27 @@ function buildParentName(searchValue: string): string {
     let firstName = split[0];
     let lastName = split[1];
 
-    let logicalOperator = "AND";
-    if (firstName === "" || lastName === "") {
-        logicalOperator = "OR";
+    if (firstName === "" || firstName === undefined) {
+        return `
+        SELECT *
+        FROM instructions_single_table
+        WHERE parent_last_name LIKE '${lastName}';
+        `;
+    }
+
+    if (lastName === "" || lastName === undefined) {
+        return `
+        SELECT *
+        FROM instructions_single_table
+        WHERE parent_first_name LIKE '${firstName}';
+        `;
     }
 
     return `
     SELECT *
     FROM instructions_single_table
-    WHERE parent_first_name LIKE '%${firstName}%'
-        ${logicalOperator} parent_last_name LIKE'%${lastName}%';
+    WHERE parent_first_name LIKE '${firstName}'
+        AND parent_last_name LIKE'${lastName}';
     `;
 }
 
@@ -52,16 +104,27 @@ function buildChildName(searchValue: string): string {
     let firstName = split[0];
     let lastName = split[1];
 
-    let logicalOperator = "AND";
-    if (firstName === "" || lastName === "") {
-        logicalOperator = "OR";
+    if (firstName === "" || firstName === undefined) {
+        return `
+        SELECT *
+        FROM instructions_single_table
+        WHERE child_last_name LIKE '${lastName}';
+        `;
+    }
+
+    if (lastName === "" || lastName === undefined) {
+        return `
+        SELECT *
+        FROM instructions_single_table
+        WHERE child_first_name LIKE '${firstName}';
+        `;
     }
 
     return `
     SELECT *
     FROM instructions_single_table
-    WHERE child_first_name LIKE '%${firstName}%'
-        ${logicalOperator} child_last_name LIKE'%${lastName}%';
+    WHERE parent_first_name LIKE '${firstName}'
+        AND parent_last_name LIKE'${lastName}';
     `;
 }
 
@@ -69,7 +132,7 @@ function buildPlace(searchValue: string): string {
     return `
     SELECT *
     FROM instructions_single_table
-    WHERE place LIKE '%${searchValue}%';
+    WHERE place LIKE '${searchValue}';
     `;
 }
 
@@ -77,7 +140,7 @@ function buildSchool(searchValue: string): string {
     return `
     SELECT *
     FROM instructions_single_table
-    WHERE school LIKE '%${searchValue}%';
+    WHERE school LIKE '${searchValue}';
     `;
 }
 
@@ -85,7 +148,7 @@ function buildClass(searchValue: string): string {
     return `
     SELECT *
     FROM instructions_single_table
-    WHERE class LIKE '%${searchValue}%';
+    WHERE class = ${searchValue};
     `;
 }
 
@@ -107,13 +170,13 @@ export function queryBuilder(searchValue:string, fieldValue:FieldValue): string 
             return buildChildName(searchValue);
 
         case FieldValue.PLACE:
-            buildPlace(searchValue);
+            return buildPlace(searchValue);
 
         case FieldValue.SCHOOL:
-            buildSchool(searchValue);
+            return buildSchool(searchValue);
 
         case FieldValue.CLASS:
-            buildClass(searchValue);
+            return buildClass(searchValue);
 
         default:
             throw new Error(`Invalid fieldValue ${fieldValue}!`);

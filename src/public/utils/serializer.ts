@@ -14,8 +14,6 @@ export function queryResultsToCSV(rows:any) {
 }
 
 export function queryResultsToJSON(rows:any[]) {
-    console.log(rows);
-
     let instructions:any[] = [];
     rows.forEach(element => {
         const instruction = {
