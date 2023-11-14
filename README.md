@@ -13,7 +13,7 @@ Excerpt from https://chooser-beta.creativecommons.org/:
 "By marking the work with a CC0 public domain dedication, the creator is giving up their copyright and allowing reusers to distribute, remix, adapt, and build upon the material in any medium or format, even for commercial purposes."
 
 - Author: Petar Železnjak
-- Version: 1.0
+- Version: 2.0
 - Language: English
 
 ## Attributes
