@@ -5,6 +5,7 @@ import { Pool } from 'pg';
 import bodyParser from 'body-parser';
 import indexRoutes from './routes/indexRoutes';
 import datatableRoutes from './routes/datatableRoutes';
+import apiRoutes from './routes/apiRoutes';
 
 dotenv.config();
 
@@ -32,6 +33,7 @@ app.use(bodyParser.json());
 
 app.use('/', indexRoutes.router);
 app.use('/datatable', datatableRoutes.router);
+app.use('/api', apiRoutes.router);
 
 app.listen(port, () => {
     console.log(`Server running locally at localhost:${port}/`);

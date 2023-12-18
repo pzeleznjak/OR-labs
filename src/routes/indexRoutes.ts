@@ -26,7 +26,13 @@ router.get('/', (req:Request, res:Response) => {
     });
 });
 
-
+router.get('/serve-schema', (req:Request, res:Response) => {
+    let path = './data_handling/schema.json'
+    res.setHeader("Content-Type","text/json");
+    res.setHeader("Content-Disposition", "attachment; filename=schema.json");
+    const fileStream:fs.ReadStream = fs.createReadStream(path);
+    fileStream.pipe(res);
+});
 
 router.get('/serve-csv', async (req:Request, res:Response) => {
     const path = './data_handling/dumps/or_instructions.csv'

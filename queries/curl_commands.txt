@@ -1,0 +1,46 @@
+jq . - nice prints given JSON
+
+Get all data - OK
+curl http://localhost:4080/api/all-instructions | jq .
+
+Get single instructions - OK
+curl http://localhost:4080/api/single-instructions/1 | jq .
+
+Get single instructions - Not Found
+curl http://localhost:4080/api/single-instructions/111 | jq .
+
+Get single instructions - Bad Request
+curl http://localhost:4080/api/single-instructions/id=a | jq .
+
+Get instructions on subject - OK
+curl http://localhost:4080/api/ins-by-subject/mathematics | jq .
+
+Get instructions on subject - Not Found
+curl http://localhost:4080/api/ins-by-subject/athematics | jq .
+
+Get instructions by location - OK
+curl http://localhost:4080/api/ins-by-location/home | jq .
+
+Get instructions by location - Not Found
+curl http://localhost:4080/api/ins-by-location/cafe | jq .
+
+Get instructions by hourly rate - OK
+curl http://localhost:4080/api/ins-by-hourly-rate/12.5 | jq .
+
+Get instructions by hourly rate - Bad Request
+curl http://localhost:4080/api/ins-by-hourly-rate/a | jq .
+
+Get instructions by hourly rate - Not Found
+curl http://localhost:4080/api/ins-by-hourly-rate/100 | jq .
+
+Add instructions - OK
+curl -X POST -H "Content-Type: application/json" -d '{ "appointment": "2023-11-01T14:00:00.000Z", "number_of_hours": 2, "hourly_rate": 10, "subject": "mathematics", "lesson": "geometry", "location": "home", "place": "Zagreb", "street": "Murterska ulica", "house_number": "35", "zip_code": "10000", "country_name": "Croatia", "parent_first_name": "Marko", "parent_last_name": "Horvat", "telephone": "0982937683", "email": "markohorvat12@gmail.com", "area_code": "+385", "school": "OŠ Rapska", "class": 4, "child_first_name": "Mila", "child_last_name": "Horvat" }' http://localhost:4080/api/add-instructions | jq .
+
+Add instructions - Bad Request
+curl -X POST -H "Content-Type: application/json" -d '{ "param1":"param1" }' http://localhost:4080/api/add-instructions | jq .
+
+Update instructions - OK - remember to swap id with id of existing instructions
+curl -X PUT -H "Content-Type: application/json" -d '{ "appointment": "2023-11-01T14:00:00.000Z", "number_of_hours": 2, "hourly_rate": 10, "subject": "mathematics", "lesson": "division", "location": "home", "place": "Zagreb", "street": "Murterska ulica", "house_number": "35", "zip_code": "10000", "country_name": "Croatia", "parent_first_name": "Marko", "parent_last_name": "Horvat", "telephone": "0982937683", "email": "markohorvat12@gmail.com", "area_code": "+385", "school": "OŠ Rapska", "class": 4, "child_first_name": "Mila", "child_last_name": "Horvat" }' http://localhost:4080/api/update-instructions/21 | jq .
+
+Delete instructions - OK - remember to swap id with id of existing instructions
+curl -X DELETE http://localhost:4080/api/delete-instructions?id=11 | jq .

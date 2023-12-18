@@ -1,0 +1,583 @@
+{
+    "openapi":"3.1.0",
+    "info": {
+        "title":"Instructions API",
+        "version":"1.0",
+        "contact":{
+            "name":"Petar Železnjak",
+            "url":"http://localhost:4080/",
+            "email":"petar.zeleznjak@fer.hr"
+        },
+        "license":{
+            "name":"CC0 1.0 Universal license",
+            "url":"https://creativecommons.org/public-domain/cc0/"
+        }
+    },
+    "paths":{
+        "/api/all-instructions":{
+            "get":{
+                "summary":"Get all instructions stored",
+                "description":"Returns a collection of instructions objects",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[],
+                "responses":{
+                    "500":{
+                        "description":"Error in processing request"
+                    },
+                    "200": {
+                        "description":"Fetched all instructions",
+                        "schema":{
+                            "$ref":"../../../data_handling/schema.json"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/single-instructions/{id}":{
+            "get":{
+                "summary":"Get single instructions referenced by id",
+                "description":"Returns instructions object",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"ID of instructions",
+                        "required":true,
+                        "type":"integer",
+                        "format":"Int64"
+                    }
+                ],
+                "responses":{
+                    "400":{
+                        "description":"Request parameter 'id' must be integer"
+                    },
+                    "500":{
+                        "description":"Error in processing request"
+                    },
+                    "404":{
+                        "description":"Instructions with given id do not exist"
+                    },
+                    "200": {
+                        "description":"Fetched instructions with id",
+                        "schema":{
+                            "$ref":"../../../data_handling/schema.json"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ins-by-subject/{subject}":{
+            "get":{
+                "summary":"Get all instructions on given subject",
+                "description":"Returns a collection of instructions objects",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"subject",
+                        "in":"path",
+                        "description":"Subject of instructions",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    }
+                ],
+                "responses":{
+                    "400":{
+                        "description":"Request parameter 'subject' must be a string"
+                    },
+                    "500":{
+                        "description":"Error in processing request"
+                    },
+                    "404":{
+                        "description":"Instructions on given subject do not exist"
+                    },
+                    "200": {
+                        "description":"Fetched instructions on subject",
+                        "schema":{
+                            "$ref":"../../../data_handling/schema.json"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ins-by-location/{location}":{
+            "get":{
+                "summary":"Get all instructions on given location",
+                "description":"Returns a collection of instructions objects",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"location",
+                        "in":"path",
+                        "description":"Subject of instructions",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    }
+                ],
+                "responses":{
+                    "400":{
+                        "description":"Request parameter 'location' must be a string"
+                    },
+                    "500":{
+                        "description":"Error in processing request"
+                    },
+                    "404":{
+                        "description":"Instructions on given location do not exist"
+                    },
+                    "200": {
+                        "description":"Fetched instructions on location",
+                        "schema":{
+                            "$ref":"../../../data_handling/schema.json"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/ins-by-hourly-rate/{rate}":{
+            "get":{
+                "summary":"Get all instructions which cost given hourly rate",
+                "description":"Returns instructions object",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"rate",
+                        "in":"path",
+                        "description":"Hourly rate cost of instructions",
+                        "required":true,
+                        "type":"float",
+                        "format":"IEEE754"
+                    }
+                ],
+                "responses":{
+                    "400":{
+                        "description":"Request parameter 'rate' must be a floating point number"
+                    },
+                    "500":{
+                        "description":"Error in processing request"
+                    },
+                    "404":{
+                        "description":"Instructions with given hourly rate do not exist"
+                    },
+                    "200": {
+                        "description":"Fetched instructions with given hourly rate",
+                        "schema":{
+                            "$ref":"../../../data_handling/schema.json"
+                        }
+                    }
+                }
+            }
+        },
+        "/api/add-instructions":{
+            "post":{
+                "summary":"Adds new instructions to the database",
+                "description":"Validates and storess given instructions object in the database",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"appointment",
+                        "in":"query",
+                        "description":"Appointment date",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"number_of_hours",
+                        "in":"query",
+                        "description":"Duration of appointment in hours",
+                        "required":true,
+                        "type":"integer",
+                        "format":"Int64"
+                    },
+                    {
+                        "name":"hourly_rate",
+                        "in":"query",
+                        "description":"Cost of an hour of instructions",
+                        "required":true,
+                        "type":"float",
+                        "format":"IEEE754"
+                    },
+                    {
+                        "name":"subject",
+                        "in":"query",
+                        "description":"Subject of instructions",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"lesson",
+                        "in":"query",
+                        "description":"Lesson given on instructions",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"location",
+                        "in":"query",
+                        "description":"Location of instructions",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"place",
+                        "in":"query",
+                        "description":"Place of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"street",
+                        "in":"query",
+                        "description":"Street of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"house_number",
+                        "in":"query",
+                        "description":"House number of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"zip_code",
+                        "in":"query",
+                        "description":"Zip code of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"country_name",
+                        "in":"query",
+                        "description":"Country name of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"parent_first_name",
+                        "in":"query",
+                        "description":"First name of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"parent_last_name",
+                        "in":"query",
+                        "description":"Last name of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"telephone",
+                        "in":"query",
+                        "description":"Telephone number of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"email",
+                        "in":"query",
+                        "description":"Email address of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"area_code",
+                        "in":"query",
+                        "description":"Area code of telephone number of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"school",
+                        "in":"query",
+                        "description":"Name of school child attends",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"class",
+                        "in":"query",
+                        "description":"Class child attends",
+                        "required":true,
+                        "type":"integer",
+                        "format":"Int64"
+                    },
+                    {
+                        "name":"child_first_name",
+                        "in":"query",
+                        "description":"First name of child",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"child_last_name",
+                        "in":"query",
+                        "description":"Last name of child",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    }
+                ],
+                "responses":{
+                    "400":{
+                        "description":"Invalid data in request body"
+                    },
+                    "500":{
+                        "description":"Error in processing request"
+                    },
+                    "200": {
+                        "description":"Instructions successfully added"
+                    }
+                }
+            }
+        },
+        "/api/update-instructions/{id}":{
+            "post":{
+                "summary":"Updates instructions in the database referenced by id",
+                "description":"Validates and updates instructions referenced by id in the database",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"appointment",
+                        "in":"query",
+                        "description":"Appointment date",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"number_of_hours",
+                        "in":"query",
+                        "description":"Duration of appointment in hours",
+                        "required":true,
+                        "type":"integer",
+                        "format":"Int64"
+                    },
+                    {
+                        "name":"hourly_rate",
+                        "in":"query",
+                        "description":"Cost of an hour of instructions",
+                        "required":true,
+                        "type":"float",
+                        "format":"IEEE754"
+                    },
+                    {
+                        "name":"subject",
+                        "in":"query",
+                        "description":"Subject of instructions",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"lesson",
+                        "in":"query",
+                        "description":"Lesson given on instructions",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"location",
+                        "in":"query",
+                        "description":"Location of instructions",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"place",
+                        "in":"query",
+                        "description":"Place of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"street",
+                        "in":"query",
+                        "description":"Street of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"house_number",
+                        "in":"query",
+                        "description":"House number of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"zip_code",
+                        "in":"query",
+                        "description":"Zip code of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"country_name",
+                        "in":"query",
+                        "description":"Country name of instructions address",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"parent_first_name",
+                        "in":"query",
+                        "description":"First name of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"parent_last_name",
+                        "in":"query",
+                        "description":"Last name of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"telephone",
+                        "in":"query",
+                        "description":"Telephone number of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"email",
+                        "in":"query",
+                        "description":"Email address of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"area_code",
+                        "in":"query",
+                        "description":"Area code of telephone number of parent",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"school",
+                        "in":"query",
+                        "description":"Name of school child attends",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"class",
+                        "in":"query",
+                        "description":"Class child attends",
+                        "required":true,
+                        "type":"integer",
+                        "format":"Int64"
+                    },
+                    {
+                        "name":"child_first_name",
+                        "in":"query",
+                        "description":"First name of child",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    },
+                    {
+                        "name":"child_last_name",
+                        "in":"query",
+                        "description":"Last name of child",
+                        "required":true,
+                        "type":"string",
+                        "format":"utf-8"
+                    }
+                ],
+                "responses":{
+                    "400":{
+                        "description":[
+                            "Request parameter 'id' must be integer",
+                            "Invalid data in request body"
+                        ]
+                    },
+                    "500":{
+                        "description":"Error in processing request"
+                    },
+                    "200": {
+                        "description":"Instructions successfully updated"
+                    }
+                }
+            }
+        },
+        "/api/delete-instructions/{id}":{
+            "delete":{
+                "summary":"Delete instructions referenced by id in the database",
+                "description":"Deletes instructions in the database",
+                "produces":[
+                    "application/json"
+                ],
+                "parameters":[
+                    {
+                        "name":"id",
+                        "in":"path",
+                        "description":"ID of instructions",
+                        "required":true,
+                        "type":"integer",
+                        "format":"Int64"
+                    }
+                ],
+                "responses":{
+                    "400":{
+                        "description":"Request parameter 'id' must be integer"
+                    },
+                    "500":{
+                        "description":"Error in processing request"
+                    },
+                    "404":{
+                        "description":"Instructions with given id do not exist"
+                    },
+                    "200": {
+                        "description":"Deleted instructions with id"
+                    }
+                }
+            }
+        }
+    }
+}
