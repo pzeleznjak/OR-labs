@@ -1,7 +1,7 @@
 import express, { Request, Response } from 'express';
 import { database } from '../server';
 import * as fs from 'fs';
-import { InstructionsInputObject, addInstructionsToDatabase as tryAddInstructionsToDatabase, sendErrorResponse, sendSuccessResponse, tryDeleteInstructionsFromDatabase } from '../public/utils/apiUtils';
+import { InstructionsInputObject, addInstructionsToDatabase as tryAddInstructionsToDatabase, sendErrorResponse, sendSuccessResponse, tryDeleteInstructionsFromDatabase, addSemanticsToJSONFile } from '../public/utils/apiUtils';
 import path from 'path';
 
 var router = express.Router();
@@ -16,7 +16,10 @@ router.get('/all-instructions/', async (req:Request, res:Response) => {
         return;
     }
 
-    sendSuccessResponse(res, "Fetched all instructions", result.rows);
+    let JSONData = result.rows;
+    JSONData = addSemanticsToJSONFile(JSONData);
+
+    sendSuccessResponse(res, "Fetched all instructions", JSONData);
     return;
 });
 
@@ -45,7 +48,10 @@ router.get('/single-instructions/:id', async (req:Request, res:Response) => {
         return;
     }
 
-    sendSuccessResponse(res, `Fetched intructions with id ${id}`, result.rows);
+    let JSONData = result.rows;
+    JSONData = addSemanticsToJSONFile(JSONData);
+
+    sendSuccessResponse(res, `Fetched intructions with id ${id}`, JSONData);
     return;
 });
 
@@ -74,7 +80,10 @@ router.get('/ins-by-subject/:subject', async (req:Request, res:Response) => {
         return;
     }
 
-    sendSuccessResponse(res, `Fetched intructions on subject ${subject}`, result.rows);
+    let JSONData = result.rows;
+    JSONData = addSemanticsToJSONFile(JSONData);
+
+    sendSuccessResponse(res, `Fetched intructions on subject ${subject}`, JSONData);
     return;
 });
 
@@ -105,7 +114,10 @@ router.get('/ins-by-location/:location', async (req:Request, res:Response) => {
         return;
     }
 
-    sendSuccessResponse(res, `Fetched intructions on location ${location}`, result.rows);
+    let JSONData = result.rows;
+    JSONData = addSemanticsToJSONFile(JSONData);
+
+    sendSuccessResponse(res, `Fetched intructions on location ${location}`, JSONData);
     return;
 });
 
@@ -134,7 +146,10 @@ router.get('/ins-by-hourly-rate/:rate', async (req:Request, res:Response) => {
         return;
     }
 
-    sendSuccessResponse(res, `Fetched intructions with hourly rate ${rate}`, result.rows);
+    let JSONData = result.rows;
+    JSONData = addSemanticsToJSONFile(JSONData);
+
+    sendSuccessResponse(res, `Fetched intructions with hourly rate ${rate}`, JSONData);
     return;
 });
 

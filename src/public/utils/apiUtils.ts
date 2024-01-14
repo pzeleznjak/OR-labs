@@ -345,3 +345,16 @@ export async function tryDeleteInstructionsFromDatabase(id:number, res:Response)
 
     return true;
 }
+
+export function addSemanticsToJSONFile(JSONData: any): any {
+    for (let i = 0; i < JSONData.length; i++) {
+        JSONData[i]["@context"] = {
+            schema:"http://schema.org/",
+            appointment:"schema:startDate",
+            number_of_hours:"schema:duration"
+        };
+        JSONData[i]["@type"] = "schema:Event";
+    }
+
+    return JSONData;
+}

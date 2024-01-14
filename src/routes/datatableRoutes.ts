@@ -8,7 +8,8 @@ var router = express.Router();
 
 router.get('/', (req:Request, res:Response) => {    
     res.render('datatable', {
-        linkActive: 'datatable'
+        linkActive: 'datatable',
+        isUserLoggedIn: req.oidc.user !== undefined,
     });
 });
 
@@ -27,6 +28,8 @@ router.post('/', async (req:Request, res:Response) => {
         var query:string = queryBuilder(searchValue, fieldValue);    
     } catch (error: Error|any) {
         res.render('error', {
+            linkActive: 'error',
+            isUserLoggedIn: req.oidc.user !== undefined,
             errorTitle: error.name,
             errorDescription: error.message
         });
@@ -39,6 +42,8 @@ router.post('/', async (req:Request, res:Response) => {
         var result = await database.query(query);    
     } catch (error: Error|any) {
         res.render('error', {
+            linkActive: 'error',
+            isUserLoggedIn: req.oidc.user !== undefined,
             errorTitle: error.name,
             errorDescription: error.message
         });
@@ -50,9 +55,19 @@ router.post('/', async (req:Request, res:Response) => {
         result:rows
     };
     
-    queryResultsToCSV(rows);
-    queryResultsToJSON(rows);
-
+    try {
+        queryResultsToCSV(rows);
+        queryResultsToJSON(rows);
+    } catch (error: Error|any) {
+        res.render('error', {
+            linkActive: 'error',
+            isUserLoggedIn: req.oidc.user !== undefined,
+            errorTitle: error.name,
+            errorDescription: error.message
+        })
+        return;
+    }
+    
     res.json(response);
 });
 

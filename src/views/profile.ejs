@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="description" content="This data set stores information about school instructions given to children. It includes data on addresses, contacts, parent and child information, instruction hours and hourly rates, appointments, and instruction locations. All data in this data set is made up for the purposes of 'Open Computing' class of Computer Science study at Faculty of Electrical Engineering and Computer Science in Zagreb, Croatia">
+        <meta name="author" content="Petar Železnjak">
+        <meta name="Version" content="1.0">
+        <meta name="language" content="English">
+        <title>School Instructions Data Set</title>
+        <link rel="stylesheet" type="text/css" href="../public/styles/main.css">
+    </head>
+
+    <body>
+        <div class="root">
+            <%- include('header.ejs') %>
+            <main>
+                <div class="content-div">
+                    <div class="user-profile-nickname-picture-div">
+                        <img src="<%= picture %>">
+                        <h1>Hello user <br/> <%= nickname %></h1>
+                    </div>
+                    <p>Name of user: <%= name %></p>
+                    <p>E-mail: <%= email %></p>
+                    <p>Profile updated at: <%= updated_at %></p>
+                    <p>Email <%= email_verified ? "" : "not" %> verified</p>
+                </div>
+                <div class="content-div">
+                    <h2>Session information</h2>
+                    <p>Session id: <%= sid %></p>
+                    <p>Subject: <%= sub %></p>
+                </div>
+            </main>
+            <%- include('footer.ejs') %>
+        </div>
+    </body>
+</html>

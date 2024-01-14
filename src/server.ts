@@ -7,6 +7,8 @@ import indexRoutes from './routes/indexRoutes';
 import datatableRoutes from './routes/datatableRoutes';
 import apiRoutes from './routes/apiRoutes';
 
+import { auth } from 'express-openid-connect';
+
 dotenv.config();
 
 const port = process.env.PORT || 4080;
@@ -20,12 +22,23 @@ export const database:Pool = new Pool({
     ssl: true
 });
 
+const config = {
+    authRequired: false,
+    auth0Logout: true,
+    secret: process.env.AUTH_SECRET,
+    baseURL: `http://localhost:${port}`,
+    clientID:process.env.AUTH_CLIENT_ID,
+    issuerBaseURL:process.env.AUTH_ISSUER_BASE_URL
+}
+
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
 
 const app: Application = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+
+app.use(auth(config));
 
 app.use('/public', express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true }));

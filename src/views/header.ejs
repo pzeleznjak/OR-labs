@@ -4,9 +4,19 @@
             <p>School Instructions Data Set</p>
         </div>
         <div class="home-button-div">
-            <a href="/">
-                <button class="header-button borderless-button">Home</button>
-            </a>
+            <div class="dropdown">
+                <button class="dropbtn">Menu</button>
+                <div class="dropdown-content">
+                <a href="/">Home</a>
+                <% if (!isUserLoggedIn) { %>
+                    <a href="/login">Login</a>
+                <% } else { %>
+                    <a href="/logout">Logout</a>
+                    <a href="/profile">Profile</a>
+                    <a href="/refresh-snapshots">Refresh snapshots</a>
+                <% } %>
+                </div>
+            </div>
         </div>
     </div>
 </header>
